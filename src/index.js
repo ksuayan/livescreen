@@ -1,3 +1,3 @@
-module.exports.init = () => {
+export default init = () => {
   console.log("Whaddup.");
 }
