@@ -1,1 +1,3 @@
-console.log("Whaddup.")
+module.exports.init = () => {
+  console.log("Whaddup.");
+}
