@@ -1,3 +1,8 @@
-export default init = () => {
-  console.log("Whaddup.");
+
+class LiveScreen {
+  static init() {
+    console.log("Whaddup...");
+  }
 }
+
+export default LiveScreen;

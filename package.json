@@ -1,6 +1,6 @@
 {
   "name": "livescreen",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A basic fullscreen module.",
   "main": "dist/lib.js",
   "scripts": {
