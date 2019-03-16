@@ -1,8 +1,21 @@
+import React from 'react';
+import './styles.css';
 
-class LiveScreen {
-  static init() {
-    console.log("Whaddup...");
+class Service {
+
+  constructor() {
+    console.log("Livescreen constructor()");
   }
+
+  init() {
+    console.log("Livescreen init()");
+  }
+
 }
 
+const LiveScreen = () => (
+    <div className="livescreen">Hello from LiveScreen</div>
+);
+
+export { Service };
 export default LiveScreen;

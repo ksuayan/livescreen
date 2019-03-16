@@ -1,22 +1,36 @@
-const path = require('path');
+const path = require('path'),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
+  htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "examples/src/index.html"),
+    filename: "./index.html"
+  });
 
-const serverConfig = {
-  entry: './src/index.js',  
-  target: 'node',
+const devServerConfig = {
+  entry: path.join(__dirname, "examples/src/index.js"),
   output: {
-    filename: 'lib.node.js',    
-    path: path.resolve(__dirname, 'dist')
-
+    path: path.join(__dirname, "examples/dist"),
+    filename: "bundle.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: "babel-loader",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
+  plugins: [htmlWebpackPlugin],
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
+  devServer: {
+    port: 3000
   }
 };
 
-const clientConfig = {
-  entry: './src/index.js',  
-  target: 'web', // <=== can be omitted as default is 'web'
-  output: {
-    filename: 'lib.js',
-    path: path.resolve(__dirname, 'dist')
-  }
-};
-
-module.exports = [ serverConfig, clientConfig ];
+module.exports = [ devServerConfig ];
